@@ -13,4 +13,4 @@ else:
     puan +=30
 
 print("Çıkan içecek:" , random.choice(rastgele_icecek))
-print("Puan:" , puan)
+print("Sayı:" , puan)
