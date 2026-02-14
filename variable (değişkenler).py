@@ -266,7 +266,7 @@ print(isim)
 
 isim = input("Adınız:")
 
-#input() zaten string döndürür..
+#input() zaten string döndürür...
 
 
 
