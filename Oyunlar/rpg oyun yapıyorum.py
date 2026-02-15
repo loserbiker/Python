@@ -53,9 +53,12 @@ print("-"*30)
 # -------------------
 # Zar Atma ve Şans Kontrolü
 # -------------------
+
 zar1 = random.randint(1,6)  # 1 ile 6 arasında rastgele zar
 zar2 = random.randint(1,6)  # 1 ile 6 arasında rastgele zar
 toplam = zar1 + zar2
+
+print (input("Zar Atmak İçin Tıkla!"))
 print("Toplam zar:", toplam)
 
 # Zar toplamına göre kullanıcıya şans durumu
@@ -80,6 +83,8 @@ else:
     puan += 20
 
 print("Toplam puan:", puan)
+print("-"*30)
+
 
 # -------------------
 # Düşman Seçimi
@@ -97,6 +102,8 @@ else:
     dusman_cani = 25
 
 print("Karşına çıkan düşman:", dusman)
+print("-"*30)
+
 
 # -------------------
 # Savaş Döngüsü
