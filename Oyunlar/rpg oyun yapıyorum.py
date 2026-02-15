@@ -4,9 +4,51 @@ import random  # Rastgele sayı ve seçim işlemleri için random modülünü im
 # Karakter Bilgileri
 # -------------------
 karakter = input("İsmini gir: ")  # Kullanıcıdan karakter ismini alıyoruz
-karakter_cani = 50  # Başlangıç canı
+karakter_cani = 0  # Başlangıç canı
+karakter_gucu = 0  # Karakter gücü
 iksir_sayisi = 3  # Başlangıçta 3 iksir hakkı
 puan = 0  # Başlangıç puanı
+
+# ------------------
+# Karakter Seçme Ekranı (Basit)
+# ------------------
+
+print("Karakter Seç:")
+print("1- Savaşçı")
+print("2- Büyücü")
+print("3- Okçu")
+print("4- Suikastçı")
+
+karakter_sec = input("Seçimin (1-4): ")
+
+# Seçime göre can ve güç ver
+if karakter_sec == "1":
+    karakter_sec = "Savaşçı"
+    karakter_cani = 50
+    karakter_gucu = 50
+elif karakter_sec == "2":
+    karakter_sec = "Büyücü"
+    karakter_cani = 40
+    karakter_gucu = 60
+elif karakter_sec == "3":
+    karakter_sec = "Okçu"
+    karakter_cani = 30
+    karakter_gucu = 40
+elif karakter_sec == "4":
+    karakter_sec = "Suikastçı"
+    karakter_cani = 35
+    karakter_gucu = 30
+else:
+    print("Geçersiz seçim! Varsayılan Savaşçı seçildi.")
+    karakter_sec = "Savaşçı"
+    karakter_cani = 50
+    karakter_gucu = 50
+
+print("Seçilen karakter:", karakter_sec)
+print("Can:", karakter_cani)
+print("Güç:", karakter_gucu)
+print("-"*30)
+
 
 # -------------------
 # Zar Atma ve Şans Kontrolü
