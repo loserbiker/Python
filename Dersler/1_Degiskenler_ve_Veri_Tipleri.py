@@ -1,62 +1,82 @@
 """
-DEĞİŞKENLER (VARIABLES)
+==============================
+DEĞİŞKENLER (VARIABLES) EĞİTİMİ
+==============================
 
-Değişkenler veri saklamak için kullanılan isimlendirilmiş hafıza alanlarıdır.
-Python dinamik tipli bir dildir. Veri tipini ayrıca belirtmemize gerek yoktur.
+Değişkenler, veri saklamak için kullanılan isimlendirilmiş hafıza alanlarıdır.
+Python, dinamik tipli bir dildir; yani değişken oluştururken veri tipini belirtmeye gerek yoktur.
 """
 
 # ------------------------------
-# Temel Veri Tipleri
+# TEMEL VERİ TİPLERİ
 # ------------------------------
 
-x = 7              # int (tam sayı)
-y = "python"       # str (metin)
-z = 0.54           # float (ondalıklı sayı)
-comp = 2j          # complex (karmaşık sayı)
+# Tam sayı (integer)
+x = 7
 
-print(type(x))
-print(type(y))
-print(type(z))
-print(type(comp))
+# Metin/string
+y = "python"
+
+# Ondalıklı sayı (float)
+z = 0.54
+
+# Karmaşık sayı (complex)
+comp = 2j
+
+# type() fonksiyonu değişkenin veri tipini gösterir
+print(type(x))    # <class 'int'>
+print(type(y))    # <class 'str'>
+print(type(z))    # <class 'float'>
+print(type(comp)) # <class 'complex'>
 
 # ------------------------------
-# Case Sensitive (Büyük-Küçük Harf Duyarlılığı)
+# CASE SENSITIVE (BÜYÜK-KÜÇÜK HARF DUYARLILIĞI)
 # ------------------------------
 
+# Python değişken isimlerinde büyük/küçük harf farkı vardır
 name = "hello"
 Name = "hello"
 
-# Bu iki değişken farklıdır.
+# name ve Name iki farklı değişkendir
+print(name)  # hello
+print(Name)  # hello
 
 # ------------------------------
-# Değişken Kuralları
+# DEĞİŞKEN KURALLARI
 # ------------------------------
 
 """
-1- Sayı ile başlayamaz
-2- Sadece harf, sayı ve _ içerebilir
-3- Büyük-küçük harfe duyarlıdır
-4- Python anahtar kelimesi olamaz
+1- Değişken isimleri sayı ile başlayamaz
+2- Sadece harf, sayı ve alt çizgi (_) içerebilir
+3- Büyük/küçük harfe duyarlıdır
+4- Python anahtar kelimeleri değişken adı olarak kullanılamaz
 """
 
-_isim = "Can"
-isim = "Can"
+# Örnek:
+_isim = "Can"   # alt çizgi ile başlayan değişken geçerlidir
+isim = "Can"    # normal değişken
 
-print(_isim)
-print(isim)
+print(_isim)  # Can
+print(isim)   # Can
 
 # ------------------------------
-# Çoklu Değer Atama
+# ÇOKLU DEĞER ATAMA
 # ------------------------------
 
+# Tek satırda birden fazla değişkene değer atayabiliriz
 a, b, c = "Apple", "Banana", "Grape"
-print(a, b, c)
+print(a, b, c)  # Apple Banana Grape
 
 # ------------------------------
-# Variable Unpacking
+# VARIABLE UNPACKING (LİSTEDEKİ DEĞERLERİ DEĞİŞKENLERE ATAMA)
 # ------------------------------
 
 colors = ["white", "black", "orange", "purple", "blue"]
 
+# Liste elemanlarını tek tek değişkenlere aktarabiliriz
 a, b, c, d, e = colors
-print(a, b, c, d, e)
+print(a, b, c, d, e)  # white black orange purple blue
+
+# NOT:
+# Unpacking yaparken değişken sayısı ile listenin uzunluğu eşleşmelidir.
+# Aksi takdirde hata alırsınız.

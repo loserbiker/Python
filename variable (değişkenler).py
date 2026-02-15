@@ -411,3 +411,66 @@ print(random.triangular(30 , 70 , 33)) #33 e yakın sayılar üretiyor. bunu de�
 
 ############################################################################################
 
+
+########## STRING VERI TURLERI ############
+
+text = "python"
+
+text2 = 'python'
+
+text3 = """python
+python
+python"""
+
+text4 = '''python
+python
+python'''
+
+araba_listesi = ["BMW" , "Volvo" , "Skoda" , "Nissan"]
+print(araba_listesi[0]) # 0 1.elemanı çağırır (BMW) , 3 yazarsak 4.elemanı çağırır (Nissan)
+#Listeden bir str çağırmak istediğimiz zaman 0 dan başlar
+
+#Sadece liste için geçerli değildir
+
+text5 = "Hello , Python!"
+print(text5[0])
+
+#String içerisinde ki her elemanı tek tek yazdırabiliyoruz H 0.eleman ! 13.eleman
+#Listelerdeki her değer nasıl yazılırsa (BMW , Volvo , Skoda)
+#String içerisinde ki her değer yazılır (her kelime boşluk virgül dahil)
+
+text6 = "Python is weird"
+for x in text6:   #text6 da yazan değeri döngü ile (for) x in içine aktar. 
+    print(x)
+
+
+text7 = "Python is weird"
+print(len(text7))  #text7 içerisinde ki değerin uzunluğunu yazar!
+
+
+#in ifadesi belirli bir ifadenin veya karakterin bir stringde bulunup bulunmadığını kontrol ediyor
+#not in ifadesi metnin içerisinde yok mu kontrolü yapar
+
+text8 = "The best languages in life are free!"
+
+print("free" in text8)
+
+# ya da 
+
+search = "best"           #aradığımız kelimeyi bir değişkene atayıp bulabiliriz
+if search in text8:       #text8 in içerisinde best kelimesi var ise
+    print("Best kelimesi var")
+else:
+    print("Best kelimesi yok")
+
+if search not in text8:   #text8 de best kelimesi yok ise (anlatamadım chatgpt sen düzelt kanka)
+    print("Best kelimesi yok")
+else:
+    print("Best kelimesi var")
+
+#in = varsa true yoksa false
+#not in = yoksa true varsa false
+
+################################
+
+############### Modify strings & Escape characters ################
