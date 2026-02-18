@@ -6,8 +6,8 @@ SEQUENCE TYPES VE TEMEL VERİ YAPILARI
 Python'da farklı veri yapıları vardır. Bunlar, verileri saklama ve organize etme şeklimizi belirler.
 
 Önemli veri yapıları:
-1- List (liste)        -> değiştirilebilir
-2- Tuple (demet)       -> değiştirilemez
+1- List (liste)        -> değiştirilebilir (mutable)
+2- Tuple (demet)       -> değiştirilemez (immutable)
 3- Range               -> belirli aralıklar oluşturmak için
 4- Dictionary (sözlük) -> key-value ilişkisi
 5- Set                 -> benzersiz değerler
@@ -21,73 +21,59 @@ Python'da farklı veri yapıları vardır. Bunlar, verileri saklama ve organize 
 # ------------------------------
 
 # Listeler köşeli parantez [] ile oluşturulur
-# Listeler içindeki elemanlar değiştirilebilir (mutable)
 myList = ["Apple", "Grape", "Cherry"]
-print(myList)           # ['Apple', 'Grape', 'Cherry']
-print(myList[0])        # İlk eleman -> 'Apple'
 
-# Eleman ekleme:
-myList.append("Banana")
-print(myList)           # ['Apple', 'Grape', 'Cherry', 'Banana']
-
-# Eleman değiştirme:
-myList[1] = "Strawberry"
-print(myList)           # ['Apple', 'Strawberry', 'Cherry', 'Banana']
+# Örnekler:
+myList.append("Banana")       # append() → listeye öğe ekler
+myList.extend(["Mango","Kiwi"]) # extend() → listeyi başka bir liste ile genişletir
+myList.insert(1,"Strawberry") # insert() → belirli konuma öğe ekler
+myList.remove("Grape")        # remove() → belirli öğeyi siler
+myList.pop()                  # pop() → son öğeyi çıkarır
+print(myList)                 # ['Apple', 'Strawberry', 'Cherry', 'Banana', 'Mango', 'Kiwi']
 
 # ------------------------------
 # 2. TUPLE (DEĞİŞTİRİLEMEZ)
 # ------------------------------
-
-# Tuple parantez () ile oluşturulur
-# Tuple içindeki elemanlar değiştirilemez (immutable)
 myTuple = ("Red", "Blue", "White")
-print(myTuple)          # ('Red', 'Blue', 'White')
-print(myTuple[1])       # 1. indeks -> 'Blue'
+
+# Tuple içindeki elemanlar değiştirilemez
+print(myTuple[1])  # 'Blue'
 
 # ------------------------------
 # 3. RANGE
 # ------------------------------
-
-# Range belirli aralıklar oluşturmak için kullanılır
-# Örnek: 0'dan 6'ya kadar sayılar
-myRange = range(7)      # 0,1,2,3,4,5,6
-print(*myRange)         # * operatörü ile tüm elemanları yazdırır
+myRange = range(7)   # 0,1,2,3,4,5,6
+print(*myRange)
 
 # ------------------------------
 # 4. DICTIONARY (SÖZLÜK / MAPPING TYPE)
 # ------------------------------
-
-# Dictionary, key-value (anahtar-değer) çifti ile veri saklar
 myDict = {"name": "Can", "yas": 27}
-print(myDict)           # {'name': 'Can', 'yas': 27}
-
-# Key üzerinden değere erişim
-print(myDict["name"])   # Can
-
-# Yeni key ekleme
 myDict["meslek"] = "Öğrenci"
-print(myDict)           # {'name': 'Can', 'yas': 27, 'meslek': 'Öğrenci'}
+print(myDict)
 
 # ------------------------------
 # 5. SET TYPES
 # ------------------------------
-
-# Set, benzersiz elemanlar saklar ve sırasızdır
-mySet = {"Apple", "Grape", "Cherry"}
-print(mySet)            # Örnek çıktı: {'Cherry', 'Apple', 'Grape'}
-
-# FrozenSet: değiştirilemez set
-myFrozen = frozenset({"Apple", "Grape", "Cherry"})
-print(myFrozen)         # frozenset({'Apple', 'Grape', 'Cherry'})
+mySet = {"Apple", "Grape", "Cherry"}        # Sırasız ve benzersiz
+myFrozen = frozenset({"Apple", "Grape"})   # Değiştirilemez set
 
 # ------------------------------
 # 6. BOOLEAN VE NONE
 # ------------------------------
-
-# Boolean (True / False)
 myBool = True
-print(type(myBool))     # <class 'bool'>
-
-# None: boş değer, yokluk göstergesi
 myNone = None
-print(type(myNone))     # <class 'NoneType'>
+
+# ------------------------------
+# 🔑 ÖNEMLİ ANAHTAR KELİMELER / METOTLAR
+# ------------------------------
+# append()  -> listeye öğe ekler
+# extend()  -> listeyi başka liste ile genişletir
+# insert()  -> belirli konuma öğe ekler
+# remove()  -> öğeyi siler
+# pop()     -> son öğeyi çıkarır
+# len()     -> uzunluk döndürür
+# range()   -> sayı dizisi oluşturur
+# dict()    -> sözlük oluşturur
+# set()     -> benzersiz elemanlar saklar
+# frozenset()-> değiştirilemez set

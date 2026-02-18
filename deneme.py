@@ -1,1 +1,3 @@
-print("Hello\aWorld")
+import random
+
+print(random.random()) 
