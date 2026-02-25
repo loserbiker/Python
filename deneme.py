@@ -1,24 +1,21 @@
-class Oyuncu:
-    def __init__(self, isim, guc):
-        self.isim = isim
-        self.can = 50
-        self.guc = guc
+import time
+import string
+import random
+can = 3
+puan = 0
 
-    def hasar_al(self, miktar):
-        self.can -= miktar
-        if self.can <= 0:
-            self.can = 0
-            return f"{self.isim} öldü!"
-        else:
-            return f"{self.isim} artık {self.can} cana sahip."
+while can > 0:
+    harf = random.choice(string.ascii_lowercase)
+    print("Harf:", harf)
+    baslangic = time.time()
+    cevap = input("Seçilen harf:")
+    bitis = time.time()
 
-    def saldir(self, rakip):
-        sonuc = rakip.hasar_al(self.guc)
-        return f"{self.isim} {rakip.isim} oyuncusuna saldırdı!\n{sonuc}"
+    if cevap == harf:
+        print(f"Doğru bildin. Tepki süren: {bitis - baslangic:.2f} saniye")
+        puan += 1
+    else:
+        print("Yanlış bildin!")
+        can -= 1
+    print(f"Can: {can} | Puan: {puan}\n")
 
-# Oyuncular
-o1 = Oyuncu("Can", 30)
-o2 = Oyuncu("Ali", 25)
-
-mesaj1 = o1.saldir(o2)
-mesaj2 = o2.saldir(o1)
