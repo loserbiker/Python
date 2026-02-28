@@ -1,6 +1,7 @@
 import time
 import string
 import random
+
 can = 3
 puan = 0
 
