@@ -1,0 +1,1 @@
+print(input("Oyunu Başlatmak İçin Tıkla!"))
