@@ -24,39 +24,48 @@ Bu konu oturmadan OOP TAM OTURMAZ.
 # ==========================================================
 
 """
-Python'da değişken bir kutu değildir.
+Birçok dilde değişken = kutu gibi anlatılır.
 
-Değişken = Bellekteki nesneye yapıştırılmış etikettir.
+Python'da bu model YANLIŞTIR.
 
-Örnek:
+Python'da:
+
+Değişken = bellekteki nesneye verilmiş isimdir.
+
+Yani değişken nesnenin kendisi değildir.
+Sadece nesneyi işaret eden bir etikettir.
 """
 
 a = [1, 2]
 
 """
-Bu satırın yaptığı:
+Bu satırın yaptığı şey:
 
-1) Bellekte bir liste nesnesi oluşturulur.
-2) 'a' bu nesneyi işaret eder.
+1) Bellekte bir LIST nesnesi oluşturulur
+2) a bu nesnenin referansını tutar
 
-Yani:
-a içine liste konmadı.
-a bu listeyi gösteriyor.
+Görsel model:
+
+a ----> [1,2]
 """
 
 # ==========================================================
 # 2) REFERANS NEDİR?
 # ==========================================================
 
+"""
+Referans = aynı nesneyi işaret eden başka bir isim.
+"""
+
 b = a
 
 """
-Yeni liste oluşmadı.
+Yeni liste oluşmaz.
 
-a ve b aynı nesneyi gösteriyor.
+Bellek modeli:
 
 a ----\
-        ---> [1, 2]
+       ----> [1,2]
 b ----/
 """
 
@@ -64,145 +73,209 @@ a.append(3)
 
 """
 append in-place çalışır.
-Yeni liste oluşmaz.
+Yani aynı nesne değişir.
 
-a = [1, 2, 3]
-b = [1, 2, 3]
+Sonuç:
+
+a = [1,2,3]
+b = [1,2,3]
 """
 
 # ==========================================================
-# 3) MUTABLE vs IMMUTABLE
+# 3) IMMUTABLE NEDİR?
 # ==========================================================
 
 """
-IMMUTABLE:
-- int
-- float
-- str
-- tuple
+Immutable = değiştirilemeyen nesne.
 
-Immutable nesne değişmez.
-Değiştirilmeye çalışılırsa yeni nesne oluşur.
+Python immutable tipleri:
+
+int
+float
+str
+tuple
 """
 
 x = 5
 y = x
+
 x += 2
 
 """
-5 değişmedi.
-Yeni 7 nesnesi oluştu.
+Burada ne olur?
 
-x = 7
-y = 5
+5 nesnesi değişmez.
+
+Yeni bir nesne oluşur.
+
+Bellek modeli:
+
+y ----> 5
+
+x ----> 7
 """
 
-"""
-MUTABLE:
-- list
-- dict
-- set
+# ==========================================================
+# 4) MUTABLE NEDİR?
+# ==========================================================
 
-Yerinde değişir.
+"""
+Mutable = yerinde değiştirilebilen nesne.
+
+Python mutable tipleri:
+
+list
+dict
+set
 """
 
 L = [1]
 K = L
+
 L.append(2)
 
 """
-L ve K aynı nesneyi gösterir.
-İkisi de [1, 2] olur.
+append in-place çalışır.
+
+Sonuç:
+
+L = [1,2]
+K = [1,2]
 """
 
 # ==========================================================
-# 4) IN-PLACE NEDİR?
+# 5) IN-PLACE NEDİR?
 # ==========================================================
 
 """
-In-place = Aynı nesne üzerinde değişiklik yapmak.
+In-place = aynı nesne üzerinde değişiklik yapmak.
+
+Yeni nesne oluşturulmaz.
 """
 
 A = [1]
-A.append(2)      # in-place
+A.append(2)
 
 """
-Yeni liste oluşmaz.
+Bellek:
+
+A ----> [1,2]
 """
 
 B = [1]
-B = B + [2]      # yeni liste
+B = B + [2]
 
 """
-Yeni nesne oluşur.
+Burada farklı bir durum var.
+
++ operatörü yeni bir liste üretir.
+
+B artık yeni nesneyi gösterir.
 """
 
 # ==========================================================
-# 5) += vs +
+# 6) += vs +
 # ==========================================================
 
-L1 = [1, 2]
+"""
+Listelerde önemli bir fark vardır.
+"""
+
+L1 = [1,2]
 L2 = L1
+
 L1 += [3]
 
 """
-Listede += in-place çalışır.
++= çoğu durumda in-place çalışır.
+
+Sonuç:
+
+L1 = [1,2,3]
+L2 = [1,2,3]
 """
 
-L3 = [1, 2]
+L3 = [1,2]
 L4 = L3
+
 L3 = L3 + [3]
 
 """
-+ yeni liste üretir.
++ operatörü yeni nesne üretir.
+
+Sonuç:
+
+L3 = [1,2,3]
+L4 = [1,2]
 """
 
 # ==========================================================
-# 6) SHALLOW COPY
+# 7) SHALLOW COPY
 # ==========================================================
 
 """
 .copy() sadece dış listeyi kopyalar.
-İç listeler ortaktır.
+
+İç nesneler paylaşılır.
 """
 
 X = [[1], [2]]
 Y = X.copy()
 
 """
-Yeni dış liste oluştu.
-İç listeler paylaşılıyor.
+Bellek:
+
+X ----> [list1, list2]
+Y ----> [list1, list2]
+
+İç listeler ortaktır.
 """
 
 X[0].append(9)
 
 """
-Y de etkilenir.
+Sonuç:
+
+X = [[1,9],[2]]
+Y = [[1,9],[2]]
 """
+
+# ==========================================================
+# 8) REFERANS DEĞİŞTİRME
+# ==========================================================
 
 Y[0] = [5]
 
 """
-Bu referans değişimidir.
+Bu durumda:
+
+Y'nin referansı değişir.
+
 X etkilenmez.
+
+Sonuç:
+
+X = [[1,9],[2]]
+Y = [[5],[2]]
 """
 
 # ==========================================================
-# 7) SIK SORULAN KRİTİK FARKLAR
+# 9) ÇOK ÖNEMLİ FARK
 # ==========================================================
 
 """
 a[0].append(9)
-→ İç liste değişir.
+
+→ iç nesne değişir
+
 
 a[0] = [9]
-→ Referans değişir.
 
-Bu fark shallow copy sorularının kalbidir.
+→ referans değişir
 """
 
 # ==========================================================
-# 8) ÖRNEK SORU
+# 10) ÖRNEK SORU
 # ==========================================================
 
 """
@@ -211,24 +284,33 @@ b = a.copy()
 a[0].append(2)
 
 Sonuç:
+
 a = [[1,2]]
 b = [[1,2]]
 
-Çünkü iç liste ortaktı.
+Sebep:
+
+İç liste ortaktır.
 """
 
 # ==========================================================
-# 9) GENEL ÖZET
+# 11) GENEL ÖZET
 # ==========================================================
 
 """
-- Değişken = etiket
-- Referans = aynı nesneyi gösteren isim
-- append = in-place
-- + = yeni nesne
-- += listede in-place
-- copy() shallow'dur
+Python değişken modeli:
+
+değişken = etiket
+nesne = gerçek veri
+
+Önemli kurallar:
+
+- değişken kutu değildir
+- referans aynı nesneyi gösterir
+- mutable nesneler yerinde değişir
+- immutable nesneler değişmez
+- append in-place çalışır
+- + yeni nesne üretir
+- copy() shallow kopyadır
 - reassignment referansı değiştirir
-
-Bu temel %100 oturmadan ilerleme.
 """
